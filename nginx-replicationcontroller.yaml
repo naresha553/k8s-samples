@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: nginx-rscontroller
+spec:
+  replicas: 3
+  selector:
+    app: nginx-rscontroller
+  template:
+    metadata:
+      name: nginx-rscontroller
+      labels:
+        app: nginx-rscontroller
+    spec:
+      containers:
+        - name: nginx-test
+          image: nginx
+          ports:
+            - containerPort: 80
