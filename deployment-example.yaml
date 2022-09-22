@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: myapp
+    type: front-end
+spec:
+  template:
+    metadata: 
+      name: myapp-pod
+      labels:
+        app: myapp
+        type: front-end
+    spec:
+      containers:
+        - name: nginx-container
+          image: nginx
+        - name: busy-box-container
+          image: busy-box
+  replicas: 3
+  selector:
+    matchLabels:
+      type: front-end
+    
