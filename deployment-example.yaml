@@ -16,10 +16,8 @@ spec:
       containers:
         - name: nginx-container
           image: nginx
-        - name: busy-box-container
-          image: busy-box
   replicas: 3
   selector:
     matchLabels:
       type: front-end
-    
+      app: myapp
