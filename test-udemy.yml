@@ -1,0 +1,1030 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2022-09-24T16:05:59Z"
+    generateName: default-backend-7f87f4c484-
+    labels:
+      app: default-backend
+      pod-template-hash: 7f87f4c484
+    name: default-backend-7f87f4c484-cghzq
+    namespace: app-space
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: default-backend-7f87f4c484
+      uid: 4cc642d2-f4fc-4020-9e9b-303c6f5f6ce6
+    resourceVersion: "972"
+    uid: 61388923-70d3-42c3-a0a7-f4014ca36414
+  spec:
+    containers:
+    - image: kodekloud/ecommerce:404
+      imagePullPolicy: Always
+      name: simple-webapp
+      ports:
+      - containerPort: 8080
+        protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-2cpxg
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: controlplane
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-2cpxg
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2022-09-24T16:05:59Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2022-09-24T16:06:19Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2022-09-24T16:06:19Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2022-09-24T16:05:59Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://5faacf06d3c4e5d4ad0fcd02906273942e593da8f322a777b2a6aa7ab13aa082
+      image: kodekloud/ecommerce:404
+      imageID: docker-pullable://kodekloud/ecommerce@sha256:466ac3eb42546f85ee9380550e2c3ee4ebaa42613680703bb876dea903513203
+      lastState: {}
+      name: simple-webapp
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2022-09-24T16:06:18Z"
+    hostIP: 10.59.148.6
+    phase: Running
+    podIP: 10.244.0.6
+    podIPs:
+    - ip: 10.244.0.6
+    qosClass: BestEffort
+    startTime: "2022-09-24T16:05:59Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2022-09-24T16:07:14Z"
+    generateName: webapp-food-6f8d48ffc6-
+    labels:
+      app: webapp-food
+      pod-template-hash: 6f8d48ffc6
+    name: webapp-food-6f8d48ffc6-rfmxv
+    namespace: app-space
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: webapp-food-6f8d48ffc6
+      uid: 8bb80940-9b42-4c5a-98ef-346d2b131fe9
+    resourceVersion: "1114"
+    uid: 7326afdd-ec23-442f-85ba-5f62c3576b5d
+  spec:
+    containers:
+    - image: kodekloud/ecommerce:food
+      imagePullPolicy: Always
+      name: webapp-food
+      ports:
+      - containerPort: 8080
+        protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-2fm6t
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: controlplane
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-2fm6t
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2022-09-24T16:07:14Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2022-09-24T16:07:19Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2022-09-24T16:07:19Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2022-09-24T16:07:14Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://327c6d5e967ade4575b6215171b3346d8f1bf82020ebfe2ed26c410ed999098b
+      image: kodekloud/ecommerce:food
+      imageID: docker-pullable://kodekloud/ecommerce@sha256:afaa2080c7c73717e3a82622855a0e3bbda259e74ee37abbd5b1bb478b039748
+      lastState: {}
+      name: webapp-food
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2022-09-24T16:07:18Z"
+    hostIP: 10.59.148.6
+    phase: Running
+    podIP: 10.244.0.10
+    podIPs:
+    - ip: 10.244.0.10
+    qosClass: BestEffort
+    startTime: "2022-09-24T16:07:14Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2022-09-24T16:05:58Z"
+    generateName: webapp-video-d54b764b6-
+    labels:
+      app: webapp-video
+      pod-template-hash: d54b764b6
+    name: webapp-video-d54b764b6-6ln6w
+    namespace: app-space
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: webapp-video-d54b764b6
+      uid: 058b0267-b7a2-4a4e-95b4-3cd4337889ad
+    resourceVersion: "947"
+    uid: 5c400bdf-5be0-4ad4-b0fd-5eb2ba90b05a
+  spec:
+    containers:
+    - image: kodekloud/ecommerce:video
+      imagePullPolicy: Always
+      name: simple-webapp
+      ports:
+      - containerPort: 8080
+        protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-x8m28
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: controlplane
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-x8m28
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2022-09-24T16:05:58Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2022-09-24T16:06:12Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2022-09-24T16:06:12Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2022-09-24T16:05:58Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://c3cf82892b8c200c0aa766537beb77615024c700c776f32a7ee805d74f3fb6f6
+      image: kodekloud/ecommerce:video
+      imageID: docker-pullable://kodekloud/ecommerce@sha256:5a8a18effa33b5668b501dc4ff6e4f473a5710c472204f5e8b932c17f74d0dd0
+      lastState: {}
+      name: simple-webapp
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2022-09-24T16:06:12Z"
+    hostIP: 10.59.148.6
+    phase: Running
+    podIP: 10.244.0.4
+    podIPs:
+    - ip: 10.244.0.4
+    qosClass: BestEffort
+    startTime: "2022-09-24T16:05:58Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2022-09-24T16:05:58Z"
+    generateName: webapp-wear-5bb44cf565-
+    labels:
+      app: webapp-wear
+      pod-template-hash: 5bb44cf565
+    name: webapp-wear-5bb44cf565-twjx5
+    namespace: app-space
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: webapp-wear-5bb44cf565
+      uid: d8ed96b8-ea87-42f2-bebe-0c88565c55c4
+    resourceVersion: "956"
+    uid: 49b75d39-e236-4961-8863-d0124edc0aa4
+  spec:
+    containers:
+    - image: kodekloud/ecommerce:apparels
+      imagePullPolicy: Always
+      name: simple-webapp
+      ports:
+      - containerPort: 8080
+        protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-hb8gd
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: controlplane
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-hb8gd
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2022-09-24T16:05:58Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2022-09-24T16:06:14Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2022-09-24T16:06:14Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2022-09-24T16:05:58Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://a22896caf018b72ae1aabd2548b1164056ddbde3e9607149923f306f5e96942c
+      image: kodekloud/ecommerce:apparels
+      imageID: docker-pullable://kodekloud/ecommerce@sha256:0ba7b7a76855aed9673da1cd6649a7c1f305ea5a41749829a39a4d055ce151a8
+      lastState: {}
+      name: simple-webapp
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2022-09-24T16:06:13Z"
+    hostIP: 10.59.148.6
+    phase: Running
+    podIP: 10.244.0.5
+    podIPs:
+    - ip: 10.244.0.5
+    qosClass: BestEffort
+    startTime: "2022-09-24T16:05:58Z"
+- apiVersion: v1
+  kind: Service
+  metadata:
+    creationTimestamp: "2022-09-24T16:05:59Z"
+    name: default-backend-service
+    namespace: app-space
+    resourceVersion: "839"
+    uid: f05efada-da21-4f32-a60c-32df3f6435e6
+  spec:
+    clusterIP: 10.99.120.153
+    clusterIPs:
+    - 10.99.120.153
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 8080
+    selector:
+      app: default-backend
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    creationTimestamp: "2022-09-24T16:07:14Z"
+    name: food-service
+    namespace: app-space
+    resourceVersion: "1098"
+    uid: 89eac974-b203-463b-ae26-356092b5f4d9
+  spec:
+    clusterIP: 10.103.56.93
+    clusterIPs:
+    - 10.103.56.93
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: 8080
+    selector:
+      app: webapp-food
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    creationTimestamp: "2022-09-24T16:05:58Z"
+    name: video-service
+    namespace: app-space
+    resourceVersion: "823"
+    uid: 5d400609-f232-4825-a3c8-689331e3ee26
+  spec:
+    clusterIP: 10.105.100.81
+    clusterIPs:
+    - 10.105.100.81
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: 8080
+    selector:
+      app: webapp-video
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    creationTimestamp: "2022-09-24T16:05:58Z"
+    name: wear-service
+    namespace: app-space
+    resourceVersion: "801"
+    uid: dbe61ab3-8c2f-43dd-b461-58a0e168ced6
+  spec:
+    clusterIP: 10.96.212.175
+    clusterIPs:
+    - 10.96.212.175
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: 8080
+    selector:
+      app: webapp-wear
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+    creationTimestamp: "2022-09-24T16:05:58Z"
+    generation: 1
+    name: default-backend
+    namespace: app-space
+    resourceVersion: "976"
+    uid: 6451f6c5-9a69-4c0d-a746-49ebf292a727
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: default-backend
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: default-backend
+      spec:
+        containers:
+        - image: kodekloud/ecommerce:404
+          imagePullPolicy: Always
+          name: simple-webapp
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2022-09-24T16:06:19Z"
+      lastUpdateTime: "2022-09-24T16:06:19Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2022-09-24T16:05:59Z"
+      lastUpdateTime: "2022-09-24T16:06:19Z"
+      message: ReplicaSet "default-backend-7f87f4c484" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+    creationTimestamp: "2022-09-24T16:07:14Z"
+    generation: 1
+    name: webapp-food
+    namespace: app-space
+    resourceVersion: "1118"
+    uid: 1da75fb1-c69e-4e8b-b955-17a5e1a74a9f
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: webapp-food
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: webapp-food
+      spec:
+        containers:
+        - image: kodekloud/ecommerce:food
+          imagePullPolicy: Always
+          name: webapp-food
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2022-09-24T16:07:19Z"
+      lastUpdateTime: "2022-09-24T16:07:19Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2022-09-24T16:07:14Z"
+      lastUpdateTime: "2022-09-24T16:07:19Z"
+      message: ReplicaSet "webapp-food-6f8d48ffc6" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+    creationTimestamp: "2022-09-24T16:05:58Z"
+    generation: 1
+    name: webapp-video
+    namespace: app-space
+    resourceVersion: "951"
+    uid: 7902c6e8-94a9-4f9d-8544-a5b7bcc5fd07
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: webapp-video
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: webapp-video
+      spec:
+        containers:
+        - image: kodekloud/ecommerce:video
+          imagePullPolicy: Always
+          name: simple-webapp
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2022-09-24T16:06:12Z"
+      lastUpdateTime: "2022-09-24T16:06:12Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2022-09-24T16:05:58Z"
+      lastUpdateTime: "2022-09-24T16:06:12Z"
+      message: ReplicaSet "webapp-video-d54b764b6" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+    creationTimestamp: "2022-09-24T16:05:58Z"
+    generation: 1
+    name: webapp-wear
+    namespace: app-space
+    resourceVersion: "960"
+    uid: ef555385-8ad5-4659-a12c-2d58de84e254
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: webapp-wear
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: webapp-wear
+      spec:
+        containers:
+        - image: kodekloud/ecommerce:apparels
+          imagePullPolicy: Always
+          name: simple-webapp
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2022-09-24T16:06:14Z"
+      lastUpdateTime: "2022-09-24T16:06:14Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2022-09-24T16:05:58Z"
+      lastUpdateTime: "2022-09-24T16:06:14Z"
+      message: ReplicaSet "webapp-wear-5bb44cf565" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "2"
+      deployment.kubernetes.io/revision: "1"
+    creationTimestamp: "2022-09-24T16:05:58Z"
+    generation: 1
+    labels:
+      app: default-backend
+      pod-template-hash: 7f87f4c484
+    name: default-backend-7f87f4c484
+    namespace: app-space
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: default-backend
+      uid: 6451f6c5-9a69-4c0d-a746-49ebf292a727
+    resourceVersion: "975"
+    uid: 4cc642d2-f4fc-4020-9e9b-303c6f5f6ce6
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: default-backend
+        pod-template-hash: 7f87f4c484
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: default-backend
+          pod-template-hash: 7f87f4c484
+      spec:
+        containers:
+        - image: kodekloud/ecommerce:404
+          imagePullPolicy: Always
+          name: simple-webapp
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    fullyLabeledReplicas: 1
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "2"
+      deployment.kubernetes.io/revision: "1"
+    creationTimestamp: "2022-09-24T16:07:14Z"
+    generation: 1
+    labels:
+      app: webapp-food
+      pod-template-hash: 6f8d48ffc6
+    name: webapp-food-6f8d48ffc6
+    namespace: app-space
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: webapp-food
+      uid: 1da75fb1-c69e-4e8b-b955-17a5e1a74a9f
+    resourceVersion: "1117"
+    uid: 8bb80940-9b42-4c5a-98ef-346d2b131fe9
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: webapp-food
+        pod-template-hash: 6f8d48ffc6
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: webapp-food
+          pod-template-hash: 6f8d48ffc6
+      spec:
+        containers:
+        - image: kodekloud/ecommerce:food
+          imagePullPolicy: Always
+          name: webapp-food
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    fullyLabeledReplicas: 1
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "2"
+      deployment.kubernetes.io/revision: "1"
+    creationTimestamp: "2022-09-24T16:05:58Z"
+    generation: 1
+    labels:
+      app: webapp-video
+      pod-template-hash: d54b764b6
+    name: webapp-video-d54b764b6
+    namespace: app-space
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: webapp-video
+      uid: 7902c6e8-94a9-4f9d-8544-a5b7bcc5fd07
+    resourceVersion: "950"
+    uid: 058b0267-b7a2-4a4e-95b4-3cd4337889ad
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: webapp-video
+        pod-template-hash: d54b764b6
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: webapp-video
+          pod-template-hash: d54b764b6
+      spec:
+        containers:
+        - image: kodekloud/ecommerce:video
+          imagePullPolicy: Always
+          name: simple-webapp
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    fullyLabeledReplicas: 1
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "2"
+      deployment.kubernetes.io/revision: "1"
+    creationTimestamp: "2022-09-24T16:05:58Z"
+    generation: 1
+    labels:
+      app: webapp-wear
+      pod-template-hash: 5bb44cf565
+    name: webapp-wear-5bb44cf565
+    namespace: app-space
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: webapp-wear
+      uid: ef555385-8ad5-4659-a12c-2d58de84e254
+    resourceVersion: "959"
+    uid: d8ed96b8-ea87-42f2-bebe-0c88565c55c4
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: webapp-wear
+        pod-template-hash: 5bb44cf565
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: webapp-wear
+          pod-template-hash: 5bb44cf565
+      spec:
+        containers:
+        - image: kodekloud/ecommerce:apparels
+          imagePullPolicy: Always
+          name: simple-webapp
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    fullyLabeledReplicas: 1
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""
