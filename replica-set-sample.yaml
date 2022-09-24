@@ -3,14 +3,14 @@ kind: ReplicaSet
 metadata:
   name: myapp-replicaset
   labels:
-    app: myapp
+    app: myapp-replicaset
     type: front-end
 spec:
   template:
     metadata:
-      name: myapp-pod
+      name: myapp-replicaset
       labels:
-        app: myapp
+        app: myapp-replicaset
         type: front-end
     spec:
       containers:
@@ -20,4 +20,4 @@ spec:
   selector:
     matchLabels:
       type: front-end
-      app: myapp
+      app: myapp-replicaset

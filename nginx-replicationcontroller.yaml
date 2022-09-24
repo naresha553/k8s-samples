@@ -3,12 +3,12 @@ kind: ReplicationController
 metadata:
   name: myapp-rc
   labels:
-    app: myapp
+    app: myapp-rc
     type: front-end
 spec:
   template:
     metadata:
-      name: myapp-pod
+      name: myapp-pod-rc
       labels:
         app: myapp
         type: front-end
