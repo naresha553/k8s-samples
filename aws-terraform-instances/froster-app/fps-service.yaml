@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: froster-pod-standalone-service
+spec:
+  type: NodePort
+  selector:
+    app: froster-pod-standalone
+    type: front-end
+  ports:
+  - port: 80
+    targetPort: 80
+    nodePort: 30008

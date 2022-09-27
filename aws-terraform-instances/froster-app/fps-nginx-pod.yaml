@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: myapp-pod-standalone
+  name: froster-pod-standalone
   labels:
-    app: myapp-pod-standalone
+    app: froster-pod-standalone
     type: front-end
 spec:
   containers:
