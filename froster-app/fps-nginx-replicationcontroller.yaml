@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: ReplicationController
 metadata:
-  name: myapp-rc
+  name: fps-rc-machine
   labels:
-    app: myapp-rc
+    app: fps-rc-machine
     type: front-end
 spec:
   template:
     metadata:
-      name: myapp-pod-rc
+      name: fps-pod-rc-machine
       labels:
         app: myapp
         type: front-end
