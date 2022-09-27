@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: fps-rc-machine-svc
+spec:
+  selector:
+    app: fps-rc-machine
+    type: front-end    
+  ports:
+  - port: 80
+    targetPort: 80
