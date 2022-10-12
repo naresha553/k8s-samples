@@ -26,3 +26,28 @@ resource "aws_eip" "public_http" {
   }
 }
 
+resource "aws_instance" "db" {
+  ami           = data.aws_ami.ubuntu.id
+  instance_type = "t3.medium"
+  key_name      = aws_key_pair.user_key.key_name
+  vpc_security_group_ids = [
+    aws_security_group.administration.id,
+    aws_security_group.web.id,
+  ]
+  subnet_id = aws_subnet.http.id
+  user_data = file("scripts/first-boot.sh")
+  tags = {
+    Name = "db-instance"
+  }
+}
+
+# Attach floating ip on instance http
+resource "aws_eip" "public_db" {
+  vpc        = true
+  instance   = aws_instance.db.id
+  depends_on = [aws_internet_gateway.gw]
+  tags = {
+    Name = "public-http"
+  }
+}
+
