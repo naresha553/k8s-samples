@@ -16,6 +16,11 @@ spec:
   replicas: 1
   revisionHistoryLimit: 10
   template:
+    metadata:
+    name: myapp-pod
+    labels:
+      app: myapp
+      type: front-end1
     spec:
       containers:
       - name: splunk-deployment-server
