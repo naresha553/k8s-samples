@@ -12,7 +12,7 @@ resource "aws_instance" "db" {
   subnet_id = aws_subnet.http.id
   user_data = file("scripts/first-boot.sh")
   tags = {
-    Name = "db-instance"
+    Name = "db-instance1"
   }
 }
 
